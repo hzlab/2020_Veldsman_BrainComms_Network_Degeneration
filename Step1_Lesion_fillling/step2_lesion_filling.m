@@ -9,8 +9,8 @@ list_file = 'list.txt'; % put your subject list here
 list = importdata(list_file);
 
 for i=1:length(list)
-    matlabbatch{1}.spm.tools.LST.lga.data_T1 = {['list{i} '/oT1.nii,1']}; % indicate where all T1 images are
-    matlabbatch{1}.spm.tools.LST.lga.data_F2 = {['list{i} '/oFlair.nii,1']}; % indicate where all FLAIR images are
+    matlabbatch{1}.spm.tools.LST.filling.data = {['list{i} '/oT1.nii,1']}; % indicate where all T1 images are
+    matlabbatch{1}.spm.tools.LST.filling.data_plm = {['list{i} '/ples_lga_0_rmoFlair.nii,1']}; % indicate your renamed lesion mask
     matlabbatch{1}.spm.tools.LST.filling.html_report = 1;
     spm_jobman('run',matlabbatch);
 end
